@@ -7,6 +7,10 @@ import { ProdutosComponent } from './produtos/produtos.component';
 import { ProdutoDetalheComponent } from './produto-detalhe/produto-detalhe.component';
 import { ProdutoNovoComponent } from './produto-novo/produto-novo.component';
 import { ProdutoEditarComponent } from './produto-editar/produto-editar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MenuComponent } from './menu/menu.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -14,11 +18,19 @@ import { ProdutoEditarComponent } from './produto-editar/produto-editar.componen
     ProdutosComponent,
     ProdutoDetalheComponent,
     ProdutoNovoComponent,
-    ProdutoEditarComponent
+    ProdutoEditarComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
