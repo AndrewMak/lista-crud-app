@@ -45,6 +45,7 @@ import {  MatAutocompleteModule,
   MatToolbarModule,
   MatTooltipModule,
   MatTreeModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import {  MatAutocompleteModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
+    HttpClientModule,
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,

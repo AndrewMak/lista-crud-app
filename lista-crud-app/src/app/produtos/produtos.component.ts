@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Produto } from 'src/model/produto';
+import { ApiService } from 'src/service/api.service';
 
 
 const ELEMENT_DATA: Produto[] = [
@@ -22,9 +23,19 @@ const ELEMENT_DATA: Produto[] = [
 export class ProdutosComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
-  constructor() { }
+  isLoadingResults = true;
+  constructor(private _api :ApiService) { }
 
   ngOnInit() {
+    this._api.getProdutos()
+    .subscribe(res => {
+      this.dataSource = res;
+      console.log(this.dataSource);
+      this.isLoadingResults = false;
+    }, err => {
+      console.log(err);
+      this.isLoadingResults = false;
+    });
   }
 
 }
