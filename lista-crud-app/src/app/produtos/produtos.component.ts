@@ -22,7 +22,7 @@ const ELEMENT_DATA: Produto[] = [
 })
 export class ProdutosComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  dataSource: Produto[];
   isLoadingResults = true;
   constructor(private _api :ApiService) { }
 
