@@ -7,7 +7,7 @@ import { Produto } from 'src/model/produto';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "http://localhost:60336/api/produtos";
+const apiUrl = 'http://localhost:5000/api/produto';
 
 @Injectable({
   providedIn: 'root'
@@ -34,23 +34,24 @@ export class ApiService {
 
   addProduto (produto): Observable<Produto> {
     return this.http.post<Produto>(apiUrl, produto, httpOptions).pipe(
-      tap((produto: Produto) => console.log(`adicionou o produto com w/ id=${produto.id}`)),
+      // tslint:disable-next-line:no-shadowed-variable
+      tap((produto: Produto) => console.log(`adicionou o produto com w/ id=${produto._id}`)),
       catchError(this.handleError<Produto>('addProduto'))
     );
   }
 
   updateProduto(id, produto): Observable<any> {
     const url = `${apiUrl}/${id}`;
-    return this.http.put(url, produto, httpOptions).pipe(
-      tap(_ => console.log(`atualiza o produco com id=${id}`)),
+    return this.http.post(url, produto, httpOptions).pipe(
+      tap(_ => console.log(`atualiza o produco com id=`)),
       catchError(this.handleError<any>('updateProduto'))
     );
   }
 
   deleteProduto (id): Observable<Produto> {
-    const url = `${apiUrl}/${id}`;
+    const url = `${apiUrl}/delete/${id}`;
 
-    return this.http.delete<Produto>(url, httpOptions).pipe(
+    return this.http.post<Produto>(url, httpOptions).pipe(
       tap(_ => console.log(`remove o produto com id=${id}`)),
       catchError(this.handleError<Produto>('deleteProduto'))
     );
