@@ -42,7 +42,7 @@ export class ApiService {
 
   updateProduto(id, produto): Observable<any> {
     const url = `${apiUrl}/${id}`;
-    return this.http.post(url, produto, httpOptions).pipe(
+    return this.http.put(url, produto, httpOptions).pipe(
       tap(_ => console.log(`atualiza o produco com id=`)),
       catchError(this.handleError<any>('updateProduto'))
     );
@@ -51,7 +51,7 @@ export class ApiService {
   deleteProduto (id): Observable<Produto> {
     const url = `${apiUrl}/delete/${id}`;
 
-    return this.http.post<Produto>(url, httpOptions).pipe(
+    return this.http.delete<Produto>(url, httpOptions).pipe(
       tap(_ => console.log(`remove o produto com id=${id}`)),
       catchError(this.handleError<Produto>('deleteProduto'))
     );
