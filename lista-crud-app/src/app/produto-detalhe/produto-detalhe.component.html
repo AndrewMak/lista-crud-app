@@ -14,9 +14,9 @@
       <mat-card-content>
         <dl>
           <dt>Preço:</dt>
-          <dd>{{produto.preco_produto}}</dd>
+          <dd>{{produto.preco_produto | currency:'BRL'}}</dd>
           <dt>Atualizado em:</dt>
-          <dd>{{produto.dt_atualizacao | date}}</dd>
+          <dd>{{produto.dt_atualizacao | date: 'dd/MM/yyyy'}}</dd>
         </dl>
       </mat-card-content>
       <mat-card-actions>
