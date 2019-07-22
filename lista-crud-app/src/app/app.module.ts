@@ -21,6 +21,8 @@ import {
   MatTableModule,
   MatToolbarModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { AuthenticationService } from 'src/service/authentication.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     ProdutoDetalheComponent,
     ProdutoNovoComponent,
     ProdutoEditarComponent,
-    MenuComponent
+    MenuComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatTableModule,
     MatToolbarModule
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
